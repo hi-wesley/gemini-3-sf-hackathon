@@ -3,6 +3,14 @@ import { generateAll } from "./api";
 import MangaPanel from "./components/MangaPanel";
 import TeachingPanel from "./components/TeachingPanel";
 
+const RANDOM_ENTRIES = [
+  "Today I went camping in the mountains with my family. Afterwards we hiked to a hidden waterfall. At night we made takoyaki and told stories by the fire.",
+  "Today I tried a new ramen shop for lunch. Afterwards I went to the supermarket to buy sweets. At night I relaxed at home watching a cooking show.",
+  "Today I lost my wallet on the train during my commute. Afterwards a kind stranger found it and contacted me. At night I met them to say thank you and buy them dinner.",
+  "Today I went to the city to browse a video game store. Afterwards I met some friends for yakitori. At night we went to a karaoke to sing together.",
+  "Today I went to a cozy cafe to read a mystery novel. Afterwards I took a walk in the park while listening to music. At night I wrote in my journal about the book.",
+];
+
 const App = () => {
   const [entry, setEntry] = useState(
     "Today I went to visit the aquarium with a friend. Afterwards we went to get milk tea. At night we went to see a new action movie together."
@@ -27,6 +35,11 @@ const App = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRandom = () => {
+    const randomEntry = RANDOM_ENTRIES[Math.floor(Math.random() * RANDOM_ENTRIES.length)];
+    setEntry(randomEntry);
   };
 
   return (
@@ -66,6 +79,9 @@ const App = () => {
             </label>
             <button type="submit" className="primary" disabled={loading || !entry.trim()}>
               {loading ? "Thinking..." : "Generate manga + lesson"}
+            </button>
+            <button type="button" className="secondary" onClick={handleRandom} disabled={loading}>
+              Demo prompt
             </button>
           </div>
           <p className="hint">

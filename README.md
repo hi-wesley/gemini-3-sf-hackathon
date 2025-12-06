@@ -51,7 +51,14 @@ Vite proxies `/api/*` to `localhost:5000` (see `frontend/vite.config.js`).
 This project uses **Google's GenAI SDK**.
 
 - **`GEMINI_API_KEY`**: Required. Used for both text generation (Gemini 3 Pro) and image generation (Gemini 3 Pro Image Preview).
+- **`GOOGLE_APPLICATION_CREDENTIALS`**: Required for text-to-speech. Point this to your service account key (e.g., `gcp_key.json`).
 - **`USE_MODEL_STUBS`**: Set to `true` in `.env` if you want to use offline stubs (no API usage). Default is `false`.
+
+## Google Cloud Setup (for Audio)
+1. Enables the **Cloud Text-to-Speech API** in your Google Cloud Console.
+2. Create a **Service Account** and download a JSON key.
+3. Rename the key to `gcp_key.json` and place it in the `backend/` folder.
+
 
 ## API shape
 
