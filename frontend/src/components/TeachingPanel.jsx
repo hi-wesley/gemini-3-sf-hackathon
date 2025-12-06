@@ -37,7 +37,10 @@ const TeachingPanel = ({ teaching }) => {
             {vocab.map((item, idx) => (
               <div key={idx} className="vocab-card">
                 <div className="jp">{item.word}</div>
-                <div className="romaji">{item.reading || item.romaji}</div>
+                <div className="reading" style={{ fontSize: "12px", color: "var(--muted)" }}>
+                  {item.reading}
+                </div>
+                <div className="romaji">{item.romaji}</div>
                 <div className="en">{item.meaning}</div>
               </div>
             ))}
