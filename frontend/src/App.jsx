@@ -33,8 +33,8 @@ const App = () => {
     <div className="page">
       <header className="hero">
         <div>
-          <p className="eyebrow">JP learning assistant</p>
-          <h1>Turn your day into a manga and learn the Japanese on it.</h1>
+          <p className="eyebrow">Nichijou (Your everyday life)</p>
+          <h1>Turn your day into a manga and learn the Japanese on it</h1>
           <p className="muted">
             Gemini 3 Pro shapes the dialogue for your level, Nano Banana Pro draws the manga page,
             and we teach you the lines with romaji, English, and quick checks.

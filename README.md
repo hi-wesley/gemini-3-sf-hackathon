@@ -1,4 +1,4 @@
-# Japanese Manga Tutor
+# Nichijou (Your everyday life)
 
 React + Flask prototype that lets a user describe their day, then:
 - **Gemini 3 Pro** shapes simple Japanese dialogue (with romaji/English) and teaching notes.
