@@ -38,9 +38,7 @@ const App = () => {
             and we teach you the lines with romaji, English, and quick checks.
           </p>
         </div>
-        <div className="status">
-          {/* <span className="dot" /> Stubs are active until you add API keys. */}
-        </div>
+
       </header>
 
       <main>
