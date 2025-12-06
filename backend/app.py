@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -90,6 +90,21 @@ def generate_all():
             "manga": manga_result,
         }
     )
+
+from tts_client import synthesize_text
+
+@app.route("/api/tts", methods=["GET"])
+def get_tts():
+    text = request.args.get("text")
+    if not text:
+        return jsonify({"error": "Missing text parameter"}), 400
+    
+    try:
+        audio_content = synthesize_text(text)
+        return Response(audio_content, mimetype="audio/mpeg")
+    except Exception as e:
+        print(f"TTS Error: {e}")
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":

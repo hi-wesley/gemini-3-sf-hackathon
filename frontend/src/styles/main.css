@@ -210,6 +210,26 @@ p {
 .line-body .jp {
   font-weight: 700;
   margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.audio-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--accent-2);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.audio-btn:hover {
+  background: rgba(14, 165, 233, 0.1);
 }
 
 .line-body .romaji {
