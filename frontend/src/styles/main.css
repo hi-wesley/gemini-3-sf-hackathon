@@ -283,9 +283,36 @@ p {
   border-radius: 8px;
 }
 
+.quiz-options.interactive li {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.quiz-options.interactive li:hover {
+  background: var(--card);
+  border-color: var(--border);
+}
+
 .quiz-options li.correct {
   background: rgba(34, 197, 94, 0.14);
+  color: #15803d;
   font-weight: 700;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.quiz-options li.incorrect {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.quiz-note.success {
+  color: #15803d;
+}
+
+.quiz-note.failure {
+  color: #b91c1c;
 }
 
 .quiz-note {
