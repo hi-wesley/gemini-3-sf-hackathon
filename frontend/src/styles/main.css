@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0f172a;
+  --panel: #f8fafc;
+  --card: #ffffff;
+  --accent: #f97316;
+  --accent-2: #0ea5e9;
+  --text: #0b1021;
+  --muted: #5b6478;
+  --border: #e2e8f0;
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+  font-family: "Space Grotesk", "Noto Sans JP", "Fira Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.08), transparent 20%), #e5e7eb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px;
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 4px 0 12px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.1);
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-2);
+  display: inline-block;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.form-card textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 15px;
+  resize: vertical;
+  min-height: 120px;
+  font-family: "Noto Sans JP", "Space Grotesk", sans-serif;
+}
+
+.form-card select {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.field.inline {
+  flex: 0 0 200px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 6px 0 0 0;
+}
+
+.primary {
+  background: linear-gradient(120deg, var(--accent), #f59e0b);
+  color: #0b0b0f;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 220px;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.25);
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.primary:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.section {
+  margin-top: 12px;
+}
+
+.line-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.line-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: var(--panel);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.line-body .jp {
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.line-body .romaji {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.line-body .en {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.line-body .note {
+  margin-top: 6px;
+  color: #0ea5e9;
+  font-size: 14px;
+}
+
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.vocab-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: #fdf4e6;
+}
+
+.vocab-card .jp {
+  font-weight: 700;
+}
+
+.vocab-card .romaji {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.vocab-card .en {
+  margin-top: 2px;
+}
+
+.quiz-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.quiz-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #eef2ff;
+}
+
+.quiz-question {
+  font-weight: 700;
+}
+
+.quiz-options {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0;
+}
+
+.quiz-options li {
+  margin: 4px 0;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.quiz-options li.correct {
+  background: rgba(34, 197, 94, 0.14);
+  font-weight: 700;
+}
+
+.quiz-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.manga-frame {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b0f1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 720px;
+}
+
+.manga-frame img {
+  width: 100%;
+  display: block;
+}
+
+.manga-placeholder {
+  color: var(--muted);
+  padding: 40px;
+}
+
+.panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.panel-text .jp {
+  font-weight: 700;
+}
+
+.panel-text .romaji {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.panel-text .en {
+  font-size: 13px;
+}
+
+.footnote {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.error-card {
+  margin-top: 12px;
+  border-color: #fda4af;
+  background: #fff1f2;
+  color: #991b1b;
+}
+
+.placeholder-card {
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field.inline {
+    width: 100%;
+  }
+
+  .primary {
+    width: 100%;
+  }
+}
