@@ -3,8 +3,7 @@ import React from "react";
 const MangaPanel = ({ manga }) => {
   if (!manga) return null;
 
-  const imageSrc = manga.image_data_url || manga.image_url || "";
-
+  const imageSrc = manga.image_url || manga.image_data_url || "";
   return (
     <div className="card">
       <div className="card-head">
