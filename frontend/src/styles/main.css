@@ -94,6 +94,10 @@ p {
   box-shadow: var(--shadow);
 }
 
+.card>*:last-child {
+  margin-bottom: 0;
+}
+
 .form-card textarea {
   width: 100%;
   border: 1px solid var(--border);

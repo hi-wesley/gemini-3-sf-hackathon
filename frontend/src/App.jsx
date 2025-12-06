@@ -4,7 +4,9 @@ import MangaPanel from "./components/MangaPanel";
 import TeachingPanel from "./components/TeachingPanel";
 
 const App = () => {
-  const [entry, setEntry] = useState("");
+  const [entry, setEntry] = useState(
+    "Today I went to visit the aquarium with a friend. Afterwards we went to get milk tea. At night we went to see a new action movie together."
+  );
   const [level, setLevel] = useState("beginner");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -48,7 +50,7 @@ const App = () => {
             <textarea
               value={entry}
               onChange={(e) => setEntry(e.target.value)}
-              placeholder="e.g., I jogged at the park this morning and felt proud. Then I met a friend for coffee."
+              placeholder="Describe your day..."
               rows={4}
               required
             />
@@ -83,8 +85,8 @@ const App = () => {
           <div className="card placeholder-card">
             <h3>Ready when you are</h3>
             <p className="muted">
-              Describe your day and we&apos;ll show the generated manga page plus a quick lesson on the Japanese
-              dialogue.
+              Describe your day above, then click <strong>Generate manga + lesson</strong> to see your custom Japanese
+              manga!
             </p>
           </div>
         )}
