@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import html2canvas from "html2canvas";
 import { generateAll } from "./api";
 import MangaPanel from "./components/MangaPanel";
 import TeachingPanel from "./components/TeachingPanel";
+import ShareCard from "./components/ShareCard";
 
 import LoadingIndicator from "./components/LoadingIndicator";
 import HistorySidebar from "./components/HistorySidebar";
@@ -23,6 +25,9 @@ const App = () => {
   const [loadingStatus, setLoadingStatus] = useState(""); // "" | "reflecting" | "drawing"
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
+
+  const shareRef = React.useRef(null);
+  const [isSharing, setIsSharing] = useState(false);
 
   // Initialize history from localStorage safely
   const [history, setHistory] = useState(() => {
@@ -70,6 +75,31 @@ const App = () => {
     setEntry(item.entry);
     setResult(item.result);
     // Scroll top on mobile might be nice, but simple restore is MVP
+  };
+
+  const handleShare = async () => {
+    if (!shareRef.current) return;
+    setIsSharing(true);
+    try {
+      // Small delay to ensure render
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      const canvas = await html2canvas(shareRef.current, {
+        scale: 1, // 1080px is already large enough
+        useCORS: true, // For external images if any
+        backgroundColor: "#ffffff",
+      });
+
+      const link = document.createElement("a");
+      link.download = `nichijou-card-${Date.now()}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } catch (err) {
+      console.error("Share generation failed:", err);
+      alert("Could not generate image. Please try again.");
+    } finally {
+      setIsSharing(false);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -143,6 +173,11 @@ const App = () => {
 
   return (
     <div className="page">
+      {/* Hidden Share Card */}
+      <div style={{ position: "absolute", top: -9999, left: -9999 }}>
+        <ShareCard ref={shareRef} result={result} entry={entry} />
+      </div>
+
       <div className="app-layout">
         <HistorySidebar
           history={history}
@@ -210,7 +245,18 @@ const App = () => {
 
             {result && !isLoading && (
               <div className="grid">
-                <MangaPanel manga={result.manga} />
+                <div className="manga-section-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <MangaPanel manga={result.manga} />
+                  <button
+                    type="button"
+                    className="secondary"
+                    onClick={handleShare}
+                    disabled={isSharing}
+                    style={{ width: "100%", justifyContent: "center" }}
+                  >
+                    {isSharing ? "Generating..." : "Download my manga panel"}
+                  </button>
+                </div>
                 <TeachingPanel teaching={result.teaching} script={result.script} />
               </div>
             )}
